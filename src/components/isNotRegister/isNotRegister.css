@@ -1,0 +1,8 @@
+.bordeDivisor{
+    
+    border-radius: 1px;
+    border-bottom: dotted gray 1px;
+}
+.space{
+    height: 5rem;
+}
