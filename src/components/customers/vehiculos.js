@@ -7,6 +7,16 @@ class Vehiculos extends Component {
         this.state = {
             vehiculos : []
         }
+        this.setValue = this.setValue.bind(this);
+        
+    }
+
+    setValue = (event) =>{
+        this.props.callBack(event.target.value);
+    }
+
+    someFn = () => {
+        this.props.callBack('Si qeu me devuelve el dato');
     }
 
     componentDidMount(){
@@ -14,17 +24,21 @@ class Vehiculos extends Component {
             .then(res => res.json())
             .then(vehiculos => this.setState({vehiculos}, () => console.log('vehiculos fetched',
             vehiculos)));
+            
     }
 
     render(){
+        
         return (
-                            
-                <select className="form-control" id="ID_EMPLEADO" name="ID_EMPLEADO" type="text">
+                      
+                <select onChange = {this.setValue.bind(this)} className="form-control" id={this.props.id} name={this.props.id} type="text">
                     {this.state.vehiculos.map(vehiculo =>
                         <option key={vehiculo.ID} value={vehiculo.ID}>{ vehiculo.DES }</option>
                         )}
                     
                 </select>
+                
+                
 
             
         );
