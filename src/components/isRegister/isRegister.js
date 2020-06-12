@@ -7,8 +7,15 @@ class IsRegister extends Component {
     constructor(){
         super();
         this.state = {
-            value: ''
+            value: '',
+            placas: ''
         }
+        this.getPlacas = this.getPlacas.bind(this);
+    }
+
+    getPlacas = (val) =>{
+        console.log(val)
+        this.setState({placas: val});
     }
 
     componentDidMount(){
@@ -17,10 +24,10 @@ class IsRegister extends Component {
 
     render(){
         return (
-            <div className="row my-1 bordeDivisor py-1">
+            <div className="row my-1 bordeDivisor py-1 mx-1">
             
-            <div className="col-4"></div><label>Placas:</label>         
-            <Vehiculos tabla="VEHICULO" id="PLACAS" columna="PLACAS"/>
+            <div className=""></div><label>Placas:</label>         
+            <Vehiculos tabla="VEHICULO" id="PLACAS" columna="PLACAS" callBack={this.getPlacas}/>
 
             <div className="space"></div>
             </div>  

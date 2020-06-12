@@ -16,7 +16,7 @@ class Vehiculos extends Component {
     }
 
     someFn = () => {
-        this.props.callBack('Si qeu me devuelve el dato');
+        this.props.callBack('callback');
     }
 
     componentDidMount(){
